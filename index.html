@@ -840,14 +840,57 @@
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: rgba(167,139,250,0.3); border-radius: 10px; }
   ::-webkit-scrollbar-thumb:hover { background: rgba(167,139,250,0.5); }
+
+/* Project details expand */
+.project-details { margin-bottom: 1rem; }
+.project-details-toggle {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+.project-details-toggle::-webkit-details-marker { display: none; }
+.project-details[open] .project-details-toggle::before { content: '▾ '; }
+.project-details:not([open]) .project-details-toggle::before { content: '▸ '; }
+.project-details-toggle:hover { color: var(--accent2); }
+.project-details-body {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-top: 0.5rem;
+  max-width: 100%;
+}
+.project-visit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent2);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  transition: color 0.2s;
+}
+.project-visit-btn:hover { color: var(--accent3); }
 </style>
 
 
 
 
 <style id="fluid-cursor-css">
-* {
-  cursor: none !important;
+@media (hover: hover) and (pointer: fine) {
+  * { cursor: none !important; }
+}
+@media (hover: none), (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none !important; }
 }
 .cursor-dot, .cursor-ring {
   position: fixed;
@@ -897,6 +940,7 @@
     <li><a href="#about">about</a></li>
     <li><a href="#education">education</a></li>
     <li><a href="#projects">projects</a></li>
+        <li><a href="#personal-projects">personal</a></li>
     <li><a href="#experience">experience</a></li>
     <li><a href="#skills">skills</a></li>
     <li><a href="#resume">resume</a></li>
@@ -1005,8 +1049,8 @@
 <section id="projects">
   <div class="container">
     <div class="reveal">
-      <p class="section-label">what i've built</p>
-      <h2 class="section-title">Featured <em>Projects</em></h2>
+      <p class="section-label">everything i've built</p>
+      <h2 class="section-title">All <em>Projects</em></h2>
     </div>
     <div class="projects-grid">
 
@@ -1081,6 +1125,107 @@
   </div>
 </section>
 
+<div class="section-divider"></div>
+
+<!-- PERSONAL PROJECTS -->
+<section id="personal-projects">
+  <div class="container">
+    <div class="reveal">
+      <p class="section-label">built for fun</p>
+      <h2 class="section-title">Personal <em>Projects</em></h2>
+    </div>
+    <div class="projects-grid">
+
+      <div class="project-card reveal" style="transition-delay:0.5s">
+        <div class="project-icon">💡</div>
+        <p class="project-org">PERSONAL PROJECT · 2023</p>
+        <h3 class="project-title">Effici</h3>
+        <p class="project-desc">A Flutter productivity app that combines a calendar with in-event notetaking, built as a first dive into Flutter and SQFLite.</p>
+        <details class="project-details">
+          <summary class="project-details-toggle">read more</summary>
+          <p class="project-details-body">My first Flutter project — a calendar and productivity app that lets users take notes within each event for easy recall. Built with Material Design and SQFLite for persistent local storage. Established foundational Flutter skills including widget design, UI layout, and local database management.</p>
+        </details>
+        <div class="tag-list">
+            <span class="tag">Flutter</span>
+            <span class="tag">Dart</span>
+            <span class="tag">SQFLite</span>
+            <span class="tag">Material Design</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:0.6s">
+        <div class="project-icon">💡</div>
+        <p class="project-org">PERSONAL PROJECT · 2024</p>
+        <h3 class="project-title">Weather Wisp</h3>
+        <p class="project-desc">A Flutter weather app with glassmorphic design focused on mastering external API integration.</p>
+        <details class="project-details">
+          <summary class="project-details-toggle">read more</summary>
+          <p class="project-details-body">A weather app that reflects current conditions through glassmorphic UI inspired by Apple's design language. Focused on learning to integrate external APIs effectively in Flutter, handling async data flows, and building a polished user experience around live data.</p>
+        </details>
+        <a href="https://weatherwisp.github.io/" target="_blank" rel="noopener noreferrer" class="project-visit-btn">↗ visit</a>
+        <div class="tag-list">
+            <span class="tag">Flutter</span>
+            <span class="tag">Dart</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">UI/UX</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:0.7s">
+        <div class="project-icon">💡</div>
+        <p class="project-org">INNOVATION ACADEMY · 2024</p>
+        <h3 class="project-title">Flappy Bird AI</h3>
+        <p class="project-desc">A Python + NEAT reinforcement learning project that trains an AI agent to master Flappy Bird.</p>
+        <details class="project-details">
+          <summary class="project-details-toggle">read more</summary>
+          <p class="project-details-body">Built with a team at Innovation Academy using Python, Pygame, and the NEAT (NeuroEvolution of Augmenting Topologies) framework. Worked on the reward function to reinforce desirable actions and penalize mistakes, watching generations improve exponentially until the AI mastered the game.</p>
+        </details>
+        <div class="tag-list">
+            <span class="tag">Python</span>
+            <span class="tag">NEAT</span>
+            <span class="tag">Pygame</span>
+            <span class="tag">Reinforcement Learning</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:0.8s">
+        <div class="project-icon">💡</div>
+        <p class="project-org">PERSONAL PROJECT · 2024</p>
+        <h3 class="project-title">CureConnect</h3>
+        <p class="project-desc">An offline Flutter app that helps people in underprivileged communities find affordable home remedies by filtering available ingredients.</p>
+        <details class="project-details">
+          <summary class="project-details-toggle">read more</summary>
+          <p class="project-details-body">Built to bring accessible medical knowledge to communities with limited internet access. Users filter by available ingredients and a custom sorting algorithm surfaces relevant home remedies with proper source attribution. Designed to work fully offline and be updated regularly with new entries.</p>
+        </details>
+        <div class="tag-list">
+            <span class="tag">Flutter</span>
+            <span class="tag">Dart</span>
+            <span class="tag">Offline-first</span>
+            <span class="tag">Sorting Algorithms</span>
+        </div>
+      </div>
+
+      <div class="project-card reveal" style="transition-delay:0.9s">
+        <div class="project-icon">💡</div>
+        <p class="project-org">INNOVATION ACADEMY · 2025</p>
+        <h3 class="project-title">Fraction Dash</h3>
+        <p class="project-desc">An educational Flutter racing game teaching 5th graders fraction addition through in-game currency and powerups.</p>
+        <details class="project-details">
+          <summary class="project-details-toggle">read more</summary>
+          <p class="project-details-body">Built with a team of 4, Fraction Dash is a racing game where players solve fraction addition problems to earn RacerPoints — currency for speed boosts, time freezes, and resets. Learned Flutter animation interpolation for the car movement system. Most proud of the powerups system for adding game complexity.</p>
+        </details>
+        <a href="https://akarshkudrimoti.github.io/fractiondash/" target="_blank" rel="noopener noreferrer" class="project-visit-btn">↗ visit</a>
+        <div class="tag-list">
+            <span class="tag">Flutter</span>
+            <span class="tag">Dart</span>
+            <span class="tag">Animations</span>
+            <span class="tag">Educational</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
 <div class="section-divider"></div>
 
 <!-- EXPERIENCE -->
@@ -1399,42 +1544,45 @@ window.addEventListener('scroll', () => {
 <div class="cursor-ring"></div>
 
 <script id="fluid-cursor-js">
-  const cursorDot = document.querySelector('.cursor-dot');
-  const cursorRing = document.querySelector('.cursor-ring');
-
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let ringX = mouseX;
-  let ringY = mouseY;
-
-  document.addEventListener('mousemove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    // Dot follows instantly
-    cursorDot.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
-  });
-
-  // Ring follows with linear interpolation (LERP) for fluid motion
-  const renderCursor = () => {
-    ringX += (mouseX - ringX) * 0.15;
-    ringY += (mouseY - ringY) * 0.15;
-    cursorRing.style.transform = `translate(calc(${ringX}px - 50%), calc(${ringY}px - 50%))`;
+  // Only run custom cursor on non-touch devices
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorRing = document.querySelector('.cursor-ring');
+  
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX = mouseX;
+    let ringY = mouseY;
+  
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      // Dot follows instantly
+      cursorDot.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
+    });
+  
+    // Ring follows with linear interpolation (LERP) for fluid motion
+    const renderCursor = () => {
+      ringX += (mouseX - ringX) * 0.15;
+      ringY += (mouseY - ringY) * 0.15;
+      cursorRing.style.transform = `translate(calc(${ringX}px - 50%), calc(${ringY}px - 50%))`;
+      requestAnimationFrame(renderCursor);
+    };
     requestAnimationFrame(renderCursor);
-  };
-  requestAnimationFrame(renderCursor);
-
-  // Hover effects on interactable elements
-  const interactables = document.querySelectorAll('a, button, input, textarea, .nav-logo');
-  interactables.forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursorRing.classList.add('hover');
-      cursorDot.classList.add('hover');
+  
+    // Hover effects on interactable elements
+    const interactables = document.querySelectorAll('a, button, input, textarea, .nav-logo');
+    interactables.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorRing.classList.add('hover');
+        cursorDot.classList.add('hover');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorRing.classList.remove('hover');
+        cursorDot.classList.remove('hover');
+      });
     });
-    el.addEventListener('mouseleave', () => {
-      cursorRing.classList.remove('hover');
-      cursorDot.classList.remove('hover');
-    });
-  });
+  }
 </script>
 
 </body>
