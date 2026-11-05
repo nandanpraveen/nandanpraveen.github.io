@@ -1,0 +1,5 @@
+:HL["/archride/_next/static/media/1e41be92c43b3255-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/archride/_next/static/css/9a2d5590de77db22.css","style"]
+2:[["children",{"s":"__PAGE__","h":160}]]
+1:[["children",{"s":"_not-found","h":96,"c":"$Q2"}]]
+0:{"b":"Xd7i43kVpO5LpzGgBgNvi","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
