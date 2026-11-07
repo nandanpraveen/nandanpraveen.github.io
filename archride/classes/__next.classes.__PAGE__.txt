@@ -8,7 +8,7 @@
 8:"static/chunks/748-c0f08be08365e673.js"
 9:"static/chunks/777-dd7081c7a7698065.js"
 a:"static/chunks/257-43ac8a5dc7303711.js"
-b:"static/chunks/app/layout-c6f9b6466e777a09.js"
+b:"static/chunks/app/layout-b2621e91ce060764.js"
 c:I[37444,["722","$2","309","$3","400","$4","907","$5","592","$6","782","$7","748","$8","777","$9","257","$a","177","$b"],"default"]
 d:I[98688,["722","$2","309","$3","400","$4","907","$5","592","$6","782","$7","748","$8","777","$9","257","$a","177","$b"],"Providers"]
 e:I[54028,["722","$2","309","$3","400","$4","907","$5","592","$6","782","$7","748","$8","777","$9","257","$a","177","$b"],"AppShell"]
@@ -22,7 +22,7 @@ f:I[94055,[],""]
 1c:"static/chunks/571-2fd7ffabde610f8a.js"
 1d:"static/chunks/508-8405033cf8ad81b6.js"
 1e:"static/chunks/543-47bd227f5d1e3b9c.js"
-1f:"static/chunks/app/classes/page-015ed3bfe8d636c2.js"
+1f:"static/chunks/app/classes/page-702ccf57a5dd07fa.js"
 20:I[23218,["722","$2","309","$3","400","$4","907","$5","782","$7","179","$1a","806","$1b","571","$1c","508","$1d","543","$1e","797","$1f"],"default"]
 23:I[55342,[],"OutletBoundary"]
 24:"$Sreact.suspense"
@@ -31,13 +31,13 @@ f:I[94055,[],""]
 29:"MetadataBoundary"
 2a:I[55342,[],"$29"]
 2b:I[74907,[],"IconMark"]
-:HL["/archride/_next/static/css/9a2d5590de77db22.css","style"]
+:HL["/archride/_next/static/css/4c2bda366c1bdca7.css","style"]
 14:X
 17:X
 17:C
 18:[["children",{"s":"__PAGE__","h":160,"d":{"r":["$","$1","c",{"children":[["$","$L19",null,{"Component":"$20","serverProvidedParams":{"searchParams":{},"params":{},"promises":["$@21","$@22"]}}],null,["$","$L23",null,{"children":["$","$24",null,{"name":"Next.MetadataOutlet","children":"$@25"}]}]]}],"p":"$@26","v":null,"s":"$14"}}]]
 15:[["children",{"s":"classes","h":96,"d":{"r":["$","$1","c",{"children":[null,["$","$Lf",null,{"parallelRouterKey":"children","template":["$","$L10",null,{}]}]]}],"p":"$@16","v":"$17","s":"$14"},"c":"$Q18"}]]
-0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/archride/_next/static/css/9a2d5590de77db22.css","precedence":"next"}]],["$","html",null,{"lang":"en","className":"__variable_907bde","suppressHydrationWarning":true,"children":["$","body",null,{"children":[["$","$Lc",null,{"defaultMode":"system","defaultLightColorScheme":"light","defaultDarkColorScheme":"dark","modeStorageKey":"archride.mode","colorSchemeStorageKey":"mui-color-scheme","attribute":"class","colorSchemeNode":"document.documentElement"}],["$","$Ld",null,{"children":["$","$Le",null,{"children":["$","$Lf",null,{"parallelRouterKey":"children","template":["$","$L10",null,{}],"notFound":[["$","$L12",null,{}],[]]}]}]}]]}]}]]}],"p":"$@13","v":null,"s":"$14"},"c":"$Q15"},"h":{"r":["$","$1","h",{"children":[null,["$","$L28",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#a51c30"}]]}],["$","$L2a",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$24",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ArchRide · UGA campus transit"}],["$","meta","1",{"name":"description","content":"A student-built UGA campus transit planner. Compare a direct bus trip with walking and make a clearer plan for getting to class."}],["$","link","2",{"rel":"icon","href":"/archride/icon.svg?512ce65d76036657","type":"image/svg+xml","sizes":"any"}],["$","$L2b","3",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@2c","v":null,"s":"$14"}},"a":"$@2d","u":"$@2e","b":"J4MKNHx7OCx_UQo69_SwB"}
+0:{"t":{"t":{"s":"","h":80,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/archride/_next/static/css/4c2bda366c1bdca7.css","precedence":"next"}]],["$","html",null,{"lang":"en","className":"__variable_907bde","suppressHydrationWarning":true,"children":["$","body",null,{"children":[["$","$Lc",null,{"defaultMode":"system","defaultLightColorScheme":"light","defaultDarkColorScheme":"dark","modeStorageKey":"archride.mode","colorSchemeStorageKey":"mui-color-scheme","attribute":"class","colorSchemeNode":"document.documentElement"}],["$","$Ld",null,{"children":["$","$Le",null,{"children":["$","$Lf",null,{"parallelRouterKey":"children","template":["$","$L10",null,{}],"notFound":[["$","$L12",null,{}],[]]}]}]}]]}]}]]}],"p":"$@13","v":null,"s":"$14"},"c":"$Q15"},"h":{"r":["$","$1","h",{"children":[null,["$","$L28",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#a51c30"}]]}],["$","$L2a",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$24",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"ArchRide · UGA campus transit"}],["$","meta","1",{"name":"description","content":"A student-built UGA campus transit planner. Compare a direct bus trip with walking and make a clearer plan for getting to class."}],["$","link","2",{"rel":"icon","href":"/archride/icon.svg?512ce65d76036657","type":"image/svg+xml","sizes":"any"}],["$","$L2b","3",{}]]}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":"$@2c","v":null,"s":"$14"}},"a":"$@2d","u":"$@2e","b":"IcBbNznTxFSdYoYxkUWMf"}
 21:{}
 22:"$18:0:1:d:r:props:children:0:props:serverProvidedParams:params"
 25:null
