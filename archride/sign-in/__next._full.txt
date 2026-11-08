@@ -8,18 +8,18 @@
 8:"static/chunks/2782-242ffea08a14186e.js"
 9:"static/chunks/4399-ae8c06e654af4d19.js"
 a:"static/chunks/9777-9054b8c58811d65e.js"
-b:"static/chunks/9257-c89f3f4e4fe1896d.js"
-c:"static/chunks/app/layout-941a6f7b0939d0dd.js"
-d:I[37444,["6722","$2","6309","$3","3400","$4","3366","$5","4756","$6","1592","$7","2782","$8","4399","$9","9777","$a","9257","$b","7177","$c"],"default"]
-e:I[98688,["6722","$2","6309","$3","3400","$4","3366","$5","4756","$6","1592","$7","2782","$8","4399","$9","9777","$a","9257","$b","7177","$c"],"Providers"]
-f:I[12268,["6722","$2","6309","$3","3400","$4","3366","$5","4756","$6","1592","$7","2782","$8","4399","$9","9777","$a","9257","$b","7177","$c"],"AppShell"]
+b:"static/chunks/2213-996b592838db2032.js"
+c:"static/chunks/app/layout-59e2078ecd68bafe.js"
+d:I[37444,["6722","$2","6309","$3","3400","$4","3366","$5","4756","$6","1592","$7","2782","$8","4399","$9","9777","$a","2213","$b","7177","$c"],"default"]
+e:I[98688,["6722","$2","6309","$3","3400","$4","3366","$5","4756","$6","1592","$7","2782","$8","4399","$9","9777","$a","2213","$b","7177","$c"],"Providers"]
+f:I[12268,["6722","$2","6309","$3","3400","$4","3366","$5","4756","$6","1592","$7","2782","$8","4399","$9","9777","$a","2213","$b","7177","$c"],"AppShell"]
 10:I[94055,[],""]
 11:I[52731,[],""]
 12:"static/chunks/app/not-found-c9b6b0ffff15e5f7.js"
 13:I[27345,["6309","$3","3400","$4","4345","$12"],"default"]
 17:"$Sreact.suspense"
 18:"static/chunks/9179-3a1052c520cdddc4.js"
-19:"static/chunks/2332-579255b78806c7fe.js"
+19:"static/chunks/2332-c9f26b076e2c0c26.js"
 1a:"static/chunks/4099-df31052bba6c0d7d.js"
 1b:"static/chunks/app/sign-in/page-7281e05ccc6cdace.js"
 1c:I[31484,["6722","$2","6309","$3","3400","$4","3366","$5","4756","$6","9179","$18","2332","$19","4099","$1a","6502","$1b"],"default"]
@@ -35,9 +35,9 @@ f:I[12268,["6722","$2","6309","$3","3400","$4","3366","$5","4756","$6","1592","$
 15:X
 16:[["children",{"s":"__PAGE__","h":512,"d":{"r":["$","$1","c",{"children":[["$","$17",null,{"fallback":["$","$L1c",null,{"height":360}],"children":["$","$L1d",null,{"mode":"sign-in"}]}],null,["$","$L1e",null,{"children":["$","$17",null,{"name":"Next.MetadataOutlet","children":"$@1f"}]}]]}],"p":false,"v":null}}]]
 14:[["children",{"s":"sign-in","h":512,"d":{"r":["$","$1","c",{"children":[null,["$","$L10",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L11",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],"p":false,"v":"$15"},"c":"$Q16"}]]
-0:{"P":null,"c":["","sign-in",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/archride/_next/static/css/4c2bda366c1bdca7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_907bde","suppressHydrationWarning":true,"children":["$","body",null,{"children":[["$","$Ld",null,{"defaultMode":"system","defaultLightColorScheme":"light","defaultDarkColorScheme":"dark","modeStorageKey":"archride.mode","colorSchemeStorageKey":"mui-color-scheme","attribute":"class","colorSchemeNode":"document.documentElement","nonce":"$undefined"}],["$","$Le",null,{"children":["$","$Lf",null,{"children":["$","$L10",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L11",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L13",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}]}]]}],"p":false,"v":null},"c":"$Q14"},"h":{"r":["$","$1","h",{"children":[null,["$","$L21",null,{"children":"$L22"}],["$","$L24",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$17",null,{"name":"Next.Metadata","children":"$L25"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":false,"v":null}},"m":"$undefined","G":["$26",[]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"8rh_5L_4Rd8sUcq6_2-jZ"}
+0:{"P":null,"c":["","sign-in",""],"q":"","i":false,"t":{"t":{"s":"","h":528,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/archride/_next/static/css/4c2bda366c1bdca7.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"__variable_907bde","suppressHydrationWarning":true,"children":["$","body",null,{"children":[["$","$Ld",null,{"defaultMode":"system","defaultLightColorScheme":"light","defaultDarkColorScheme":"dark","modeStorageKey":"archride.mode","colorSchemeStorageKey":"mui-color-scheme","attribute":"class","colorSchemeNode":"document.documentElement","nonce":"$undefined"}],["$","$Le",null,{"children":["$","$Lf",null,{"children":["$","$L10",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L11",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L13",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}]}]]}],"p":false,"v":null},"c":"$Q14"},"h":{"r":["$","$1","h",{"children":[null,["$","$L21",null,{"children":"$L22"}],["$","$L24",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$17",null,{"name":"Next.Metadata","children":"$L25"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"p":false,"v":null}},"m":"$undefined","G":["$26",[]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"g5RDNm_GryqQ8mKSy-gJs"}
 15:C
 22:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#a51c30"}]]
 27:I[74907,[],"IconMark"]
 1f:null
-25:[["$","title","0",{"children":"ArchRide · UGA campus transit"}],["$","meta","1",{"name":"description","content":"A student-built UGA campus transit planner. Compare a direct bus trip with walking and make a clearer plan for getting to class."}],["$","link","2",{"rel":"icon","href":"/archride/icon.svg?512ce65d76036657","type":"image/svg+xml","sizes":"any"}],["$","$L27","3",{}]]
+25:[["$","title","0",{"children":"ArchRide · UGA campus transit"}],["$","meta","1",{"name":"description","content":"A student-built UGA campus transit planner. Compare a direct bus trip with walking and make a clearer plan for getting to class."}],["$","link","2",{"rel":"manifest","href":"/archride/manifest.webmanifest","crossOrigin":"$undefined"}],["$","link","3",{"rel":"apple-touch-icon","href":"/archride/icons/app-192.png"}],["$","$L27","4",{}]]
