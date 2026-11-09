@@ -1,4 +1,4 @@
 :HL["/archride/_next/static/media/1e41be92c43b3255-s.p.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/archride/_next/static/css/4c2bda366c1bdca7.css","style"]
 1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"g5RDNm_GryqQ8mKSy-gJs","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"aBwiuU_ExljH8kfSUP6Qo","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
