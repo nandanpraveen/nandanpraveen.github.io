@@ -11,7 +11,11 @@ module tb;
     wire [31:0] host_rdata;
     wire [SIZE*SIZE-1:0] trace_valid;
     wire [SIZE*SIZE*32-1:0] trace_sums;
+`ifdef TF_GATE_LEVEL
+    tf_accelerator dut (.*);
+`else
     tf_accelerator #(.SIZE(SIZE), .DIM(DIM)) dut (.*);
+`endif
 
     reg serial_start = 0;
     reg [5:0] m, n, k;
@@ -37,15 +41,17 @@ module tb;
     always @(posedge clk) begin
         if (trace_advance && !rst) begin
             sampled_valid = trace_valid;
-            sampled_step = dut.step;
             macs = macs + $countones(sampled_valid);
             streams = streams + 1;
+`ifndef TF_GATE_LEVEL
+            sampled_step = dut.step;
             if (case_id == trace_case) begin
                 #1;
                 $display("TRACE %0d %0d %0d %0d %0d %h %h",
                          dut.cycles, dut.tile_m, dut.tile_n, dut.tile_k, sampled_step,
                          sampled_valid, trace_sums);
             end
+`endif
         end
     end
 
@@ -88,11 +94,13 @@ module tb;
 
     initial begin
         if (!$value$plusargs("vectors=%s", vectors)) $fatal(1, "missing vectors");
+`ifndef TF_GATE_LEVEL
         if ($value$plusargs("wave=%s", waveform)) begin
             $dumpfile(waveform);
             $dumpvars(0, clk, rst, dut.state, dut.step, dut.tile_m, dut.tile_n,
                          dut.tile_k, trace_valid, trace_sums);
         end
+`endif
         scan = $value$plusargs("trace=%d", trace_case);
         fd = $fopen(vectors, "r");
         if (fd == 0) $fatal(1, "could not read vectors");

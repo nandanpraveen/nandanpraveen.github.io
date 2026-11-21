@@ -17,9 +17,12 @@ Install Python 3.10 or later, a C11 compiler, GNU Make, Icarus Verilog and Yosys
 
 ```sh
 make check
+make hardware
 make demo
 ```
 
 Open http://127.0.0.1:8000 for the demo. The checkout already includes the captured data, so you can also open `demo/index.html` directly. `make test` refreshes the simulation and inference artifacts, `make synth` refreshes the synthesis report, and `make driver` compiles and tests the C driver. To debug a single configuration, run `python3 software/run.py --size 4`, then use `make test` to restore the full published dataset. VCD waveforms are generated in `build/`.
 
 The [engineering report](docs/REPORT.md) covers design decisions, scaling, and trade-offs. The [interview guide](docs/INTERVIEW.md) gives concrete modifications to try and explain.
+
+`make hardware` builds the 8 × 8 accelerator as a generic gate-level Verilog netlist under `build/hardware/`. It runs the mapped netlist through matrix and two-layer inference workloads and saves `verification.json` beside the build. The netlist supports functional simulation without a target technology library. It has no FPGA pin assignments or timing constraints.
