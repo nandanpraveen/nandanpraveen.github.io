@@ -21,7 +21,7 @@ make hardware
 make demo
 ```
 
-Open http://127.0.0.1:8000 for the demo. The checkout already includes the captured data, so you can also open `demo/index.html` directly. `make test` refreshes the simulation and inference artifacts, `make synth` refreshes the synthesis report, and `make driver` compiles and tests the C driver. To debug a single configuration, run `python3 software/run.py --size 4`, then use `make test` to restore the full published dataset. VCD waveforms are generated in `build/`.
+Open http://127.0.0.1:8000 for the demo. The checkout already includes the captured data, so you can also open `demo/index.html` directly. `make test` refreshes the simulation and inference artifacts, `make synth` refreshes the synthesis report, and `make driver` compiles and tests the C driver. To debug a single configuration, run `python3 software/run.py --size 4`; its results are saved separately in `build/results-4/`. VCD waveforms are generated in `build/`.
 
 The [engineering report](docs/REPORT.md) covers design decisions, scaling, and trade-offs. The [interview guide](docs/INTERVIEW.md) gives concrete modifications to try and explain.
 

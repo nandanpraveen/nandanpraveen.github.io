@@ -32,7 +32,7 @@ module tb;
         .output_valid(baseline_valid), .result(baseline_result)
     );
 
-    integer case_id = -1, trace_case = -1, macs = 0, streams = 0, tb_cycle = 0;
+    integer case_id = -1, trace_case = -1, macs = 0, streams = 0;
     integer serial_cycles = 0;
     reg [SIZE*SIZE-1:0] sampled_valid;
     integer sampled_step;

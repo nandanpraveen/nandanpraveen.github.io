@@ -3,114 +3,74 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TensorForge | INT8 Accelerator</title>
-<style>
-:root{color-scheme:dark;--bg:#080e16;--panel:#101b29;--edge:#273b50;--fg:#eef5fa;--muted:#a8bfce;--signal:#7df0c6;--mono:ui-monospace,monospace}
-*,*::before,*::after{box-sizing:border-box}
-body{margin:0;color:var(--fg);background:radial-gradient(at 35% 0%,#132d3a 0%,transparent 31rem),var(--bg);font:1rem/1.6 system-ui,sans-serif}
-main{width:min(72rem,calc(100% - 2rem));margin:auto;padding:2rem 0 4rem}
-a{color:var(--signal)}
-header{max-width:54rem;margin-bottom:2.5rem}
-h1,h2,h3,p{margin:0}
-h1{font-size:clamp(3rem,10vw,6rem);line-height:1.05;letter-spacing:-.075em;margin:.8rem 0}
-h2{font-size:clamp(1.4rem,4vw,2rem);letter-spacing:-.04em}
-h3{font-size:1rem}
-p{color:var(--muted);margin:.4rem 0 1rem}
-section{background:var(--panel);border:1px solid var(--edge);border-radius:1rem;padding:clamp(1rem,4vw,2rem);margin-bottom:1.5rem}
-.controls,.split{display:flex;flex-wrap:wrap;align-items:end;gap:1rem}
-.controls{margin:1rem 0}
-label{display:grid;gap:.25rem;color:var(--muted)}
-input,select,textarea,button{font:inherit}
-select,button,textarea{border:1px solid var(--edge);background:#0a1420;color:var(--fg);border-radius:.35rem;padding:.4rem .7rem}
-button{cursor:pointer}
-button:hover{border-color:var(--signal)}
-button:disabled{cursor:default;opacity:.45}
-input[type=range]{accent-color:var(--signal);width:min(20rem,100%)}
-.grid-scroll,.scroll-table{overflow:auto;margin:1rem 0}
-.cells{display:grid;gap:.25rem;width:max-content;min-width:min(100%,32rem);grid-template-columns:repeat(var(--n),minmax(2.6rem,1fr))}
-.cell{display:grid;align-content:center;justify-items:center;min-height:3rem;padding:.2rem .35rem;background:#09131e;border:1px solid var(--edge);border-radius:.3rem;font:normal .72rem/1.45 var(--mono)}
-.cell.active{color:var(--signal);border-color:#508d80;background:#15382e}
-.cell small{color:var(--muted)}
-.split{gap:1.5rem;align-items:start}
-pre{margin:.35rem 0 .8rem;font:normal .86rem/1.55 var(--mono);color:var(--signal)}
-textarea{width:100%;min-height:6rem;font-family:var(--mono)}
-.editor{flex:1;min-width:min(100%,17rem)}
-table{width:100%;border-collapse:collapse;text-align:left;font-variant-numeric:tabular-nums}
-th,td{padding:.55rem .75rem;border-bottom:1px solid var(--edge);white-space:nowrap}
-th{color:var(--muted)}
-td:nth-child(n+2),th:nth-child(n+2){text-align:right}
-.caption{font-size:.9rem;color:var(--muted)}
-.cycle-chart{display:grid;gap:.5rem;margin-top:1rem}
-.bar-row{display:grid;grid-template-columns:5rem 1fr minmax(4rem,auto);align-items:center;gap:.6rem;font:normal .8rem/1.4 var(--mono)}
-.bar-track{height:.65rem;background:#09131e;border-radius:1rem;overflow:hidden}
-.bar-fill{height:100%;background:var(--signal);border-radius:inherit}
-output{display:block;margin:.6rem 0;color:var(--signal);font-family:var(--mono)}
-</style>
+<meta name="theme-color" content="#030712">
+<title>TensorForge · Nandan Praveen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono&family=Fraunces:ital,wght@0,700;0,900;1,700;1,900&display=swap">
+<link rel="stylesheet" href="style.css">
 <script defer src="data.js"></script>
 <script defer src="app.js"></script>
 </head>
 <body>
+<nav aria-label="Portfolio"><a class="logo" href="../../" aria-label="Nandan Praveen home">np<span>.</span></a>
+<div><a href="../../#projects">Projects</a><a href="../../#about">About</a><a href="../../#contact">Contact</a></div></nav>
 <main>
+<section class="hero" aria-labelledby="title">
 <header>
-<a href="../../#projects">Nandan Praveen · Projects</a>
-<h1>TensorForge</h1>
-<p>A configurable INT8 neural-network accelerator built in SystemVerilog. Step through an output-stationary systolic array, compare simulated cycle counts, and inspect predictions from a quantized two-layer network.</p>
-</header>
-<section aria-labelledby="wave-heading">
-<h2 id="wave-heading">Follow the wavefront</h2>
-<p>Each processing element passes its inputs east and south, accumulating one dot product locally. Highlighted cells executed a multiply-accumulate on this captured RTL clock edge.</p>
+<a class="kicker" href="../../#projects">Projects / Computer architecture</a>
+<h1 id="title">Tensor<i>Forge</i></h1>
+<p class="intro">An INT8 neural network accelerator built in SystemVerilog.</p>
+<p>Step through a real RTL trace. Each active cell multiplies two inputs, adds the product to its running total, and passes the inputs to its neighbors.</p>
 <div class="controls">
-<label>Array size <select id="array"></select></label>
-<label>Stream step <input id="step" type="range" min="0" value="0"></label>
-<button id="previous" type="button">Previous</button>
-<button id="next" type="button">Next</button>
+<label>Array size<select id="array"></select></label>
+<label>Stream step<input id="step" type="range" min="0" value="0"></label>
 </div>
+<div class="transport"><button id="previous" type="button">Previous</button><button id="next" type="button">Next step</button></div>
+</header>
+<figure class="trace">
+<figcaption>Systolic array <span class="key">Active MAC</span></figcaption>
+<div class="grid-scroll" tabindex="0" aria-label="Processing element accumulators"><div id="cells" class="cells"></div></div>
 <output id="cycle" aria-live="polite"></output>
-<div class="grid-scroll"><div id="cells" class="cells" aria-label="Processing element accumulators"></div></div>
-<div class="split">
+<div class="matrices">
 <div><h3>Activations A</h3><pre id="matrix-a"></pre></div>
 <div><h3>Weights B</h3><pre id="matrix-b"></pre></div>
-<div><h3>Final RTL output</h3><pre id="matrix-c"></pre></div>
+<div><h3>Final output</h3><pre id="matrix-c"></pre></div>
 </div>
+</figure>
 </section>
-<section aria-labelledby="benchmark-heading">
-<h2 id="benchmark-heading">Array scaling</h2>
-<p>Cycle counts include tile clears, wavefront fill and drain, and writeback. The one-MAC-per-cycle baseline counts compute cycles. Host transfers are outside both counts.</p>
-<label>Workload <select id="workload"></select></label>
-<div id="cycle-chart" class="cycle-chart" aria-hidden="true"></div>
-<div class="scroll-table"><table>
-<thead><tr><th>Array</th><th>RTL cycles</th><th>Serial cycles</th><th>MACs/cycle</th><th>PE utilization</th></tr></thead>
-<tbody id="measurements"></tbody>
-</table></div>
-<p class="caption">RTL simulation at a logical clock. The values do not represent physical hardware timing.</p>
+<section class="spread" aria-labelledby="bench">
+<header><h2 id="bench">Array <i>scaling.</i></h2>
+<p>Compare the cycles each array takes on the same multiplication. Counts include tile setup, computation and writeback. Host transfers are excluded.</p>
+<label>Workload<select id="workload"></select></label></header>
+<div class="scroll-table" tabindex="0" aria-label="Benchmark results"><table>
+<thead><tr><th>Array</th><th>RTL cycles</th><th>Serial cycles</th><th>MACs/cycle</th><th>Utilization</th></tr></thead>
+<tbody id="measurements"></tbody></table></div>
 </section>
-<section aria-labelledby="inference-heading">
-<h2 id="inference-heading">Run inference on a held-out sample</h2>
-<p>The quantized 4 → 8 → 3 Iris classifier uses RTL GEMM for both layers, with bias, ReLU and requantization in the hidden layer. The samples replay verified simulator output.</p>
-<label>Held-out sample <select id="sample"></select></label>
-<output id="classification" aria-live="polite"></output>
-<div class="split">
+<section class="spread" aria-labelledby="iris">
+<header><h2 id="iris">Iris <i>inference.</i></h2>
+<p>Inspect a held-out flower sample as it passes through the two-layer classifier. The logits are the three class scores. The highest score determines the prediction.</p>
+<label>Held-out sample<select id="sample"></select></label></header>
+<div class="readout"><output id="classification" aria-live="polite"></output>
+<div class="signals">
 <div><h3>INT8 input</h3><pre id="features"></pre></div>
-<div><h3>INT8 hidden activations</h3><pre id="hidden"></pre></div>
-<div><h3>INT32 logits</h3><pre id="logits"></pre></div>
-</div>
-<p id="accuracy" class="caption"></p>
+<div><h3>Hidden activations</h3><pre id="hidden"></pre></div>
+<div><h3>INT32 logits</h3><pre id="logits"></pre></div></div>
+<p id="accuracy"></p></div>
 </section>
-<section aria-labelledby="calculator-heading">
-<h2 id="calculator-heading">Try your own matrices</h2>
-<p>Enter signed INT8 values with one row per line. This calculator uses the browser’s integer reference model.</p>
-<div class="split">
-<label class="editor">Activations A<textarea id="custom-a">3 -2 4
+<section class="spread" aria-labelledby="lab">
+<header><h2 id="lab">Matrix <i>scratchpad.</i></h2>
+<p>Try the integer reference calculation in your browser. Enter one row per line using values from −128 to 127.</p></header>
+<div><div class="editors">
+<label>Activations A<textarea id="custom-a" spellcheck="false">3 -2 4
 1 5 -3</textarea></label>
-<label class="editor">Weights B<textarea id="custom-b">2 -1
+<label>Weights B<textarea id="custom-b" spellcheck="false">2 -1
 0 4
--3 2</textarea></label>
-</div>
+-3 2</textarea></label></div>
 <button id="multiply" type="button">Multiply</button>
-<output id="custom-status" aria-live="polite"></output>
-<pre id="custom-product"></pre>
+<output id="custom-status" aria-live="polite"></output><pre id="custom-product"></pre></div>
 </section>
-<a href="https://github.com/nandanpraveen/nandanpraveen.github.io/tree/main/tensorforge">Source and engineering documentation</a>
 </main>
-</body>
-</html>
+<footer><a class="logo" href="../../" aria-label="Portfolio home">np<span>.</span></a>
+<a class="repo" href="https://github.com/nandanpraveen/nandanpraveen.github.io/tree/main/tensorforge">View TensorForge on GitHub ↗</a></footer>
+</body></html>

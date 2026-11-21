@@ -32,7 +32,7 @@ function drawWavefront() {
       const sum = Number.parseInt(frame.sums_hex.slice(hexEnd - 8, hexEnd), 16) | 0;
       const cell = document.createElement("div");
       cell.className = active ? "cell active" : "cell";
-      cell.textContent = Number.isNaN(sum) ? "?" : String(sum);
+      cell.textContent = String(sum);
       cell.title = `PE (${row}, ${col}), accumulator ${sum}`;
       if (active) {
         const k = tileDepth + frame.step - row - col;
@@ -51,7 +51,7 @@ function drawWavefront() {
 
 function resetWavefront() {
   stepSlider.max = data.traces[arraySelect.value].frames.length - 1;
-  stepSlider.value = 0;
+  stepSlider.value = Math.min(2, Number(stepSlider.max));
   drawWavefront();
   drawSample();
 }
@@ -59,23 +59,6 @@ function resetWavefront() {
 function drawBenchmarks() {
   const rows = data.benchmarks.filter(row => row.case === workloadSelect.value);
   const largest = Math.max(...rows.map(row => row.cycles));
-  const chart = rows.map(row => {
-    const bar = document.createElement("div");
-    bar.className = "bar-row";
-    const label = document.createElement("span");
-    label.textContent = `${row.array} × ${row.array}`;
-    const track = document.createElement("div");
-    track.className = "bar-track";
-    const fill = document.createElement("div");
-    fill.className = "bar-fill";
-    fill.style.width = `${100 * row.cycles / largest}%`;
-    track.append(fill);
-    const count = document.createElement("span");
-    count.textContent = row.cycles.toLocaleString();
-    bar.append(label, track, count);
-    return bar;
-  });
-  find("cycle-chart").replaceChildren(...chart);
   const entries = rows.map(row => {
     const tr = document.createElement("tr");
     const values = [`${row.array} × ${row.array}`, row.cycles, row.serial_cycles,
@@ -84,6 +67,14 @@ function drawBenchmarks() {
       const cell = document.createElement(index === 0 ? "th" : "td");
       if (index === 0) cell.scope = "row";
       cell.textContent = value;
+      if (index === 1) {
+        const meter = document.createElement("meter");
+        meter.min = 0;
+        meter.max = largest;
+        meter.value = row.cycles;
+        meter.setAttribute("aria-hidden", "true");
+        cell.append(meter);
+      }
       tr.append(cell);
     }
     return tr;
@@ -99,7 +90,7 @@ function drawSample() {
   for (const field of ["features", "hidden", "logits"]) {
     find(field).textContent = example[field].join("  ");
   }
-  find("accuracy").textContent = `${info.quantized_correct}/${info.samples} correct in quantized RTL · ${info.float_correct}/${info.samples} correct in the floating-point reference · ${info.cycles[0] + info.cycles[1]} RTL cycles for the full 30-sample batch.`;
+  find("accuracy").textContent = `${info.quantized_correct}/${info.samples} correct in quantized RTL · ${info.float_correct}/${info.samples} correct in the floating-point reference · ${info.cycles[0] + info.cycles[1]} RTL cycles for the full ${info.samples}-sample batch.`;
 }
 
 function parseMatrix(text) {
@@ -129,7 +120,7 @@ function multiplyCustom() {
 
 addOptions(arraySelect, data.sizes.map(size => [size, `${size} × ${size}`]));
 arraySelect.value = String(data.sizes.includes(4) ? 4 : data.sizes[0]);
-addOptions(workloadSelect, data.benchmarks.filter(row => row.array === data.sizes[0] && row.case.startsWith("gemm_"))
+addOptions(workloadSelect, data.benchmarks.filter(row => row.array === data.sizes[0])
   .map(row => [row.case, `${row.m} × ${row.n} output, K = ${row.k}`]));
 workloadSelect.value = "gemm_32x32x32";
 addOptions(sampleSelect, data.inference[data.sizes[0]].examples.map((_, index) => [index, `Sample ${index + 1}`]));
