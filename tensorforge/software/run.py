@@ -86,13 +86,13 @@ def compile_tb(size):
     return target
 
 
-def run_cases(binary, cases, trace=False):
+def run_cases(binary, cases, trace=False, runner=("vvp",)):
     with tempfile.NamedTemporaryFile(mode="w", dir=BUILD) as file:
         file.write(str(len(cases)) + "\n" + "\n".join(case.serialize() for case in cases) + "\n")
         file.flush()
         flags = ["+trace=0", f"+wave={BUILD / (binary.stem + '.vcd')}"] if trace else []
         try:
-            log = execute(["vvp", binary, f"+vectors={file.name}", *flags])
+            log = execute([*runner, binary, f"+vectors={file.name}", *flags])
         except subprocess.CalledProcessError as error:
             raise RuntimeError(f"{binary.name}:\n{error.stdout}\n{error.stderr}") from error
     metrics, frames = {}, []
@@ -116,11 +116,11 @@ def run_cases(binary, cases, trace=False):
     return metrics, outputs, frames
 
 
-def inference(binary, network, inputs, labels, floating):
+def inference(binary, network, inputs, labels, floating, runner=("vvp",)):
     first_case = Case("iris_hidden", inputs, network["w1"], network["b1"], network["weight_shift"])
-    first_metrics, first_result, _ = run_cases(binary, [first_case])
+    first_metrics, first_result, _ = run_cases(binary, [first_case], runner=runner)
     second_case = Case("iris_logits", first_result[0], network["w2"])
-    second_metrics, second_result, _ = run_cases(binary, [second_case])
+    second_metrics, second_result, _ = run_cases(binary, [second_case], runner=runner)
     logits = [[value + bias for value, bias in zip(row, network["b2"])] for row in second_result[0]]
     predictions = [argmax(row) for row in logits]
     golden = [argmax([x + bias for x, bias in zip(row, network["b2"])]) for row in second_case.output()]

@@ -25,4 +25,4 @@ Open http://127.0.0.1:8000 for the demo. The checkout already includes the captu
 
 The [engineering report](docs/REPORT.md) covers design decisions, scaling, and trade-offs. The [interview guide](docs/INTERVIEW.md) gives concrete modifications to try and explain.
 
-`make hardware` builds the 8 × 8 accelerator as a generic gate-level Verilog netlist under `build/hardware/`. It runs the mapped netlist through matrix and two-layer inference workloads and saves `verification.json` beside the build. The netlist supports functional simulation without a target technology library. It has no FPGA pin assignments or timing constraints.
+`make hardware` builds the 8 × 8 accelerator as a generic gate-level Verilog netlist under `build/hardware/`. It uses Verilator 5 with timing support and a C++20 compiler to verify the mapped netlist through matrix and two-layer inference workloads. For an Icarus-only environment, use `make hardware GATE_SIM=iverilog`. The command saves `verification.json` beside the build. The netlist supports functional simulation without a target technology library. It has no FPGA pin assignments or timing constraints.
